@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Spaseship
 {
-    class Star : Spaceship
+    class Star : MovableObject
     {
         public Star()
         {

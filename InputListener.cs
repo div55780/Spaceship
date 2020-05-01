@@ -6,11 +6,11 @@ namespace Spaseship
 {
     class InputListener
     {
-        Spaceship listeningObject;
+        MovableObject listeningObject;
         
-        public InputListener(Spaceship spaceship)
+        public InputListener(MovableObject drivableObject)
         {
-            listeningObject = spaceship;
+            listeningObject = drivableObject;
         }
         
         public void Listen()
