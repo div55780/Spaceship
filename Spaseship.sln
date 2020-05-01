@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spaseship", "Spaseship.csproj", "{517F7B6D-7D49-42B8-AA24-BCFF069E76CB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{517F7B6D-7D49-42B8-AA24-BCFF069E76CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{517F7B6D-7D49-42B8-AA24-BCFF069E76CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{517F7B6D-7D49-42B8-AA24-BCFF069E76CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{517F7B6D-7D49-42B8-AA24-BCFF069E76CB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BA85B733-3E6E-443A-8E9A-7FA8A562B5DA}
+	EndGlobalSection
+EndGlobal
