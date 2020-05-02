@@ -20,5 +20,10 @@ namespace Spaseship
                 return Console.WindowHeight;
             }
         }
+    
+        public void Refresh()
+        {
+            Console.Clear();
+        }
     }
 }

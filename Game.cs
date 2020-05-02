@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Spaseship
@@ -24,35 +25,50 @@ namespace Spaseship
             spaceship.Draw();
             star.Draw();
 
+            Task[] tasks = new Task[2];
+
             Task shipTask = Task.Factory.StartNew(() =>
             {
                 InputListener shipListener = new InputListener(spaceship);
-                shipListener.Listen();
+                while (shipListener.Listen()) 
+                {
+                    spaceship.Draw();
+                }
             });
             
             Task backgroundTask = Task.Factory.StartNew(async () =>
             {
-                for (int i = 0; i < 100; i++)
+                while (true)
                 {
                     int newX = star.x; 
                     int newY = star.y + 1;
-                    await Task.Delay(100);
+                    await Task.Delay(250);
                     if (star.y >= screen.height)
                     {
-                        star.Remove();
-                        star = null;
+                        newX = star.x - 1;
+                        newY = 0;
+                        
                     }
-                    else
-                    {
-                        star.Redraw(newX, newY);
-                    }
-                    
+                    star.Redraw(newX, newY);
                 }
             });
-            
-            
-            backgroundTask.Wait();
+
+            Task refreshTask = Task.Factory.StartNew(async () =>
+            {
+                while (true)
+                {
+                    Console.Clear();
+                    spaceship.Draw();
+                    star.Draw();
+                    await Task.Delay(10);
+                }
+            });
+
             shipTask.Wait();
+            //tasks[0] = backgroundTask;
+            //tasks[1] = shipTask;
+
+            //Task.WaitAll(tasks);
         }
     }
 }
