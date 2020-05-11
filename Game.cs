@@ -32,7 +32,7 @@ namespace Spaseship
                 InputListener shipListener = new InputListener(spaceship);
                 while (shipListener.Listen()) 
                 {
-                    spaceship.Draw();
+                    spaceship.Redraw(spaceship.x, spaceship.y);
                 }
             });
             
@@ -53,22 +53,7 @@ namespace Spaseship
                 }
             });
 
-            Task refreshTask = Task.Factory.StartNew(async () =>
-            {
-                while (true)
-                {
-                    Console.Clear();
-                    spaceship.Draw();
-                    star.Draw();
-                    await Task.Delay(10);
-                }
-            });
-
             shipTask.Wait();
-            //tasks[0] = backgroundTask;
-            //tasks[1] = shipTask;
-
-            //Task.WaitAll(tasks);
         }
     }
 }

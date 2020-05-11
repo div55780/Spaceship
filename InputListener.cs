@@ -20,30 +20,31 @@ namespace Spaseship
             {
                 return false;
             }
+
+            listeningObject.oldX = listeningObject.x;
+            listeningObject.oldY = listeningObject.y;
+
             switch (keyInfo.Key)
             {
+                
                 case ConsoleKey.W:
                 {
-                        //listeningObject.y -= 1;
-                        listeningObject.Redraw(listeningObject.x, listeningObject.y - 1);
+                        listeningObject.y -= 1;
                         break;
                 }
                 case ConsoleKey.S:
                 {
-                        //listeningObject.y += 1;
-                        listeningObject.Redraw(listeningObject.x, listeningObject.y + 1);
+                        listeningObject.y += 1;
                         break;
                 }
                 case ConsoleKey.A:
                 {
-                        //listeningObject.x -= 1;
-                        listeningObject.Redraw(listeningObject.x - 1, listeningObject.y);
+                        listeningObject.x -= 1;
                         break;
                 }
                 case ConsoleKey.D:
                 {
-                        //listeningObject.x += 1;
-                        listeningObject.Redraw(listeningObject.x + 1, listeningObject.y);
+                        listeningObject.x += 1;
                         break;
                 }
             }
