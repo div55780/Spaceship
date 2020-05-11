@@ -42,12 +42,14 @@ namespace Spaseship
                 {
                     int newX = star.x; 
                     int newY = star.y + 1;
-                    await Task.Delay(250);
-                    if (star.y >= screen.height)
+                    if (newX == spaceship.x &&  newY == spaceship.y)
                     {
-                        newX = star.x - 1;
-                        newY = 0;
-                        
+                        newY += 1;
+                    }
+                    await Task.Delay(250);
+                    if (star.y == screen.height)
+                    {
+                        newY = 1;
                     }
                     star.Redraw(newX, newY);
                 }
