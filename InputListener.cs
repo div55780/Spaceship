@@ -23,10 +23,13 @@ namespace Spaseship
 
             listeningObject.oldX = listeningObject.x;
             listeningObject.oldY = listeningObject.y;
-
             switch (keyInfo.Key)
             {
-                
+                case ConsoleKey.C:
+                {
+                        listeningObject.Shoot();
+                        break;
+                }
                 case ConsoleKey.W:
                 {
                         listeningObject.y -= 1;

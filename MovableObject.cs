@@ -33,10 +33,14 @@ namespace Spaseship
             Console.Write(" ");
         }
 
-        public void SetPosition(int xPos, int yPos)
+        public virtual void SetPosition(int xPos, int yPos)
         {
             x = xPos;
             y = yPos;
+        }
+
+        public virtual void Shoot() {
+            Console.WriteLine("Shoot");
         }
     }
 }
