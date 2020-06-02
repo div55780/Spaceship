@@ -8,6 +8,7 @@ namespace Spaseship
     {
         public MovableObject parent;
         public bool isActive;
+        public bool isFired;
 
         public Bullet (MovableObject parent)
         {

@@ -53,14 +53,11 @@ namespace Spaseship
                         {
                             int newX = b.x;
                             int newY = b.y - 1;
-                            if (newY == 1)
+                            if (newY == 0)
                             {
-                                lock (locker)
-                                {
-                                    b.Remove();
-                                }
-                                    
                                 b.isActive = false;
+                                b.Remove();
+                                continue;
                             }
                             lock (locker)
                             {

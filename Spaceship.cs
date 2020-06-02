@@ -30,10 +30,10 @@ namespace Spaseship
         {
             Bullet activeBullet = bullets.ElementAt(activeBulletIndex);
             activeBullet.isActive = true;
+            activeBullet.isFired = true;
             activeBullet.x = this.x - 1;
             activeBullet.y = this.y;
             activeBulletIndex += 1;
-            //activeBullet.Draw();
         }
     }
     
