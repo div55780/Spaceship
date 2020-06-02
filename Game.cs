@@ -10,6 +10,7 @@ namespace Spaseship
     {
         public Screen screen;
         public Spaceship spaceship;
+        public Enemy enemy;
         public object locker;
         public Background bg;
 
@@ -17,9 +18,11 @@ namespace Spaseship
         {
             screen = new Screen();
             spaceship = new Spaceship();
+            enemy = new Enemy();
             spaceship.SetPosition(screen.width / 2, screen.height);
             bg = new Background();
             bg.screen = screen;
+
 
             Console.CursorVisible = false;
         }
@@ -28,8 +31,6 @@ namespace Spaseship
             spaceship.Draw();
             bg.Update();
             locker = new object();
-            //Task[] tasks = new Task[2];
-
             Task shipTask = Task.Factory.StartNew(() =>
             {
                 InputListener shipListener = new InputListener(spaceship);
@@ -39,7 +40,31 @@ namespace Spaseship
                     {
                         spaceship.Redraw(spaceship.x, spaceship.y);
                     }
-                    
+                }
+            });
+
+            Task enemyTask = Task.Factory.StartNew(async () =>
+            {
+                int newX = 0;
+                while (true)
+                {
+                    if (enemy.x > spaceship.x)
+                    {
+                        newX = enemy.x - 1;
+                    }
+                    if (enemy.x < spaceship.x)
+                    {
+                        newX = enemy.x + 1;
+                    }
+                    if (enemy.x == spaceship.x)
+                    {
+                        
+                    }
+                    lock (locker)
+                    {
+                        enemy.Redraw(newX, enemy.y);
+                    }
+                    await Task.Delay(100);
                 }
             });
 
